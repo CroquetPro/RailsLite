@@ -4,3 +4,4 @@ gem 'rack'
 gem "rspec", "~> 3.1.0"
 gem "activesupport"
 gem 'json'
+gem 'byebug'
