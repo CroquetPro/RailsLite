@@ -26,6 +26,7 @@ class ControllerBase
     @res.status = 302
     @res['location'] = url
     session.store_session(@res)
+
     @already_built_response = true
   end
 
@@ -61,4 +62,15 @@ class ControllerBase
       render(name)
     end
   end
+
+  def flash
+    if session['flash'].nil? or session['flash'].too_old?
+      @flash = Flash.new
+      @session['flash'] = @flash
+    else
+      @flash = @session['flash']
+    end
+  end
+
+
 end
